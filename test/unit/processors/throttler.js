@@ -9,7 +9,7 @@ describe('Debounce processor', function() {
   it('should wrap handlers with throttler function', function() {
     const func = function() {};
     const element = <input onChange={func} />;
-    const throttler = new Throttler(element, "onChange", 400);
+    const throttler = new Throttler(element, 'onChange', 400);
 
     const el = throttler.element();
 

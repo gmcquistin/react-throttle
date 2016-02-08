@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Throttler from '../classes/processors/Throttler'
 import Base from './Base';
 

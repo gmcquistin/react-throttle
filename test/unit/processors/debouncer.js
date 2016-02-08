@@ -9,7 +9,7 @@ describe('Debounce processor', function() {
   it('should wrap handlers with debounce function', function() {
     const func = function() {};
     const element = <input onChange={func} />;
-    const debouncer = new Debouncer(element, "onChange", 400);
+    const debouncer = new Debouncer(element, 'onChange', 400);
 
     const el = debouncer.element();
 

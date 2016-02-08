@@ -9,7 +9,7 @@ const _ = lodash.runInContext();
 export default class Base {
   constructor(el, handlersToWrap, time) {
     if (this.constructor === Base) {
-      throw new Error("Can't instantiate abstract class!");
+      throw new Error('Can\'t instantiate abstract class!');
     }
 
     // Array of handler names which we should wrap

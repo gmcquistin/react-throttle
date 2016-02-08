@@ -6,7 +6,7 @@ import Debounce from '../../../src/components/Debounce'
 import isWrappedFunction from '../../helpers/isWrappedFunction';
 import _ from 'lodash';
 import sinon from 'sinon';
-import { mount, describeWithDOM } from 'enzyme';
+import { mount } from 'enzyme';
 
 
 chai.should();
@@ -51,7 +51,7 @@ describe('Debouncer component', function() {
     before(function() {
       const renderer = TestUtils.createRenderer();
       renderer.render(
-        <Debounce handlers={["onClick", "onBlur", "onChange"]}>
+        <Debounce handlers={['onClick', 'onBlur', 'onChange']}>
           <input onClick={() => {}}
                  onBlur={() => {}}
                  onChange={() => {}}
@@ -63,7 +63,7 @@ describe('Debouncer component', function() {
     });
 
     it('should wrap specified props', function() {
-      const props = _.pick(this.output.props, ["onClick", "onBlur", "onChange"]);
+      const props = _.pick(this.output.props, ['onClick', 'onBlur', 'onChange']);
 
       _.every(props, isWrappedFunction).should.be.true;
     });

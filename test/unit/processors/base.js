@@ -14,7 +14,7 @@ describe('Base processor', function() {
   it('should cancel throttle functions when destroyed', function(done) {
     const func = sinon.spy();
     const element = <input onChange={func} />;
-    const debouncer = new Debouncer(element, "onChange", 200);
+    const debouncer = new Debouncer(element, 'onChange', 200);
 
     const el = debouncer.element();
     el.props.onChange();
@@ -29,7 +29,7 @@ describe('Base processor', function() {
   it('should wrap functions properly', function(done) {
     const func = sinon.spy();
     const element = <input onChange={func} />;
-    const debouncer = new Debouncer(element, "onChange", 200);
+    const debouncer = new Debouncer(element, 'onChange', 200);
 
     const el = debouncer.element();
     el.props.onChange();

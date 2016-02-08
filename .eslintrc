@@ -5,15 +5,18 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "mocha": true
   },
   "parser": "babel-eslint",
   "rules": {
     "quotes": [2, "single"],
     "strict": [2, "never"],
+    "no-unused-vars": 0,
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
-    "react/react-in-jsx-scope": 2
+    "react/react-in-jsx-scope": 2,
+    "react/jsx-no-undef": 1
   },
   "plugins": [
     "react"

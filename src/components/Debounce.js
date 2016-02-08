@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import Debouncer from '../classes/processors/Debouncer';
 import Base from './Base';
 
