@@ -1,0 +1,20 @@
+language: node_js
+node_js: stable
+cache:
+  directories:
+  - node_modules
+install:
+- npm install
+- npm install -g codecov
+after_success:
+- npm run coverage
+- codecov
+deploy:
+  provider: npm
+  email: gavin.mcquistin@linn.co.uk
+  api_key:
+    secure: uBrg4NdL6XPNPQezU49i0jYLSUDueAZvLcZ9kZ5ZI40HUBlzS27OUvChl7oYpe0qq9sPIYymQRI+ICm3tjIPMk+LGPTGvA5GSsSba2dRqUMKnTuAs0CrmZYssJ8vCrGWPTq+s8GvvKVO+FWetxdy96QESG+e2SygstEF9NDZk6biEvPTkET6gpZW37EagpadwAeMEFR9j4yWkXoVotbTIhtEf0EPTfrfAcoQTrfJvlURD1oMNvGAExo//R7tMxd30VZW18W6tLUlX0Q9kvR0kv5HBr+BKIq9NvtTTUmc45CanyvtRDeAJPUNdqyLQRF0sQgf+1uGcKfwKuzZGIKFZ33KjJqGssSPz3FTjlOxYyKEn7myGl8m0ZUfa+i06FcfPaiLOKYj0mLZ++NC9s2LqD0BO5RF2zhj/Msygs4ySLX+Z4sUpLmbKD2uyi2smkh+SE8jIEuBrKWvFgDv13LMaXGEfQRi00Mh3jVhOmd/v1wVB5/p35/bEUe3ZK1u/c+wo4exTQljm5GU2nTk0tC3H0gkaepWmTd1rL82hovQhJELuaI8PoSlz5apwHJCcSPSpRGOuOZT5+bqlsl7cszAmHslytV4ZuJAIF2t5hiRUQxE0BpinQm0ZmyK0/eM8kWDzDgh4geP+gnuebwib5TSr5QuA8vOH99eR5gNWabL72g=
+  on:
+    tags: true
+    all_branches: true
+    repo: gmcquistin/react-throttle
