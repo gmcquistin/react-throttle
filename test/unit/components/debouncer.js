@@ -1,20 +1,19 @@
+import 'enzyme/withDom';
 import chai from 'chai';
-import ReactTestUtils from 'react-addons-test-utils';
+import TestUtils from 'react-addons-test-utils';
 import React from 'react';
 import Debounce from '../../../src/components/Debounce'
 import isWrappedFunction from '../../helpers/isWrappedFunction';
 import _ from 'lodash';
-import ReactDOM from 'react-dom';
-import jsdom from 'jsdom';
 import sinon from 'sinon';
+import { mount, describeWithDOM } from 'enzyme';
+
 
 chai.should();
-global.window = jsdom.jsdom().defaultView;
-global.document = window.document;
 
 describe('Debouncer component', function() {
   it('should render the child component', function() {
-    const renderer = ReactTestUtils.createRenderer();
+    const renderer = TestUtils.createRenderer();
 
     renderer.render(
       <Debounce>
@@ -29,7 +28,7 @@ describe('Debouncer component', function() {
 
   describe('with one prop to wrap', function() {
     before(function() {
-      const renderer = ReactTestUtils.createRenderer();
+      const renderer = TestUtils.createRenderer();
 
       renderer.render(
         <Debounce handler="onClick">
@@ -50,7 +49,7 @@ describe('Debouncer component', function() {
 
   describe('with an array of props to wrap', function() {
     before(function() {
-      const renderer = ReactTestUtils.createRenderer();
+      const renderer = TestUtils.createRenderer();
       renderer.render(
         <Debounce handlers={["onClick", "onBlur", "onChange"]}>
           <input onClick={() => {}}
@@ -71,6 +70,26 @@ describe('Debouncer component', function() {
 
     it('should not wrap unspecified props', function() {
       isWrappedFunction(this.output.props.onMouseOver).should.be.false;
+    });
+  });
+
+  describe('when unmounting', function() {
+    it('should cancel throttling operations', function(done) {
+      const fn = sinon.spy();
+      const wrapper = mount(
+        <Debounce time="100" handler="onClick">
+          <button onClick={fn}/>
+        </Debounce>
+      );
+      const button = wrapper.find('button');
+
+      button.simulate('click');
+      wrapper.unmount();
+
+      setTimeout(function() {
+        fn.called.should.be.false;
+        done();
+      }, 150);
     });
   });
 });
