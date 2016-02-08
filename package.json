@@ -1,6 +1,6 @@
 {
   "name": "react-throttle",
-  "version": "0.1.0",
+  "version": "0.1.3",
   "description": "Throttles/debounces handlers of a child element",
   "main": "lib/index.js",
   "scripts": {
