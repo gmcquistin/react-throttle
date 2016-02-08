@@ -8,6 +8,10 @@ const _ = lodash.runInContext();
 // be passed to the derived class to be wrapped in a throttling function
 export default class Base {
   constructor(el, handlersToWrap, time) {
+    if (this.constructor === Base) {
+      throw new Error("Can't instantiate abstract class!");
+    }
+
     // Array of handler names which we should wrap
     this.handlersToWrap = handlersToWrap;
 
@@ -43,10 +47,6 @@ export default class Base {
   // Cancel timers related to throttling
   destroy() {
     _.values(this.handlers).forEach(this._cancelThrottle);
-  }
-
-  _wrapHandler() {
-    throw "_wrapHandler not implemented";
   }
 
   // Lodash provides cancel methods on throttle/debounce wrappers
