@@ -4,6 +4,7 @@
 [![Dependency Status](https://david-dm.org/gmcquistin/react-throttle.svg)](https://david-dm.org/gmcquistin/react-throttle)
 [![devDependency Status](https://david-dm.org/gmcquistin/react-throttle/dev-status.svg)](https://david-dm.org/gmcquistin/react-throttle#info=devDependencies)
 [![bitHound Overall Score](https://www.bithound.io/github/gmcquistin/react-throttle/badges/score.svg)](https://www.bithound.io/github/gmcquistin/react-throttle)
+[![Known Vulnerabilities](https://snyk.io/test/npm/react-throttle/badge.svg)](https://snyk.io/test/npm/react-throttle)
 
 react-throttle is an npm package which contains two React components: `Throttle` and `Debounce`. These components can be wrapped around a child component, the event handlers of which will be either throttled or debounced depending on which component you choose.
 
