@@ -1,4 +1,6 @@
-export default debounce(func, wait, options) {
+import { toNumber, isObject, now, cloneDeep } from 'lodash';
+
+export default function debounce(func, wait, options) {
   var lastArgs,
       lastThis,
       result,
@@ -15,7 +17,7 @@ export default debounce(func, wait, options) {
   wait = toNumber(wait) || 0;
   if (isObject(options)) {
     leading = !!options.leading;
-    maxWait = 'maxWait' in options && nativeMax(toNumber(options.maxWait) || 0, wait);
+    maxWait = 'maxWait' in options && Math.max(toNumber(options.maxWait) || 0, wait);
     trailing = 'trailing' in options ? !!options.trailing : trailing;
   }
 
@@ -95,8 +97,7 @@ export default debounce(func, wait, options) {
     var time = now(),
         isInvoking = shouldInvoke(time);
 
-    lastArgs = arguments;
-    console.log('args', lastArgs);
+    lastArgs = cloneDeep(Array.prototype.slice.call(arguments));
     lastThis = this;
     lastCallTime = time;
 
