@@ -1,6 +1,6 @@
 {
   "name": "react-throttle",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Throttles/debounces handlers of a child element",
   "main": "lib/index.js",
   "scripts": {
@@ -30,7 +30,6 @@
   "homepage": "https://github.com/gmcquistin/react-throttle#readme",
   "devDependencies": {
     "babel-cli": "^6.4.5",
-    "babel-eslint": "^4.1.8",
     "babel-istanbul": "^0.6.0",
     "babel-preset-es2015": "^6.3.13",
     "babel-preset-react": "^6.3.13",
@@ -38,8 +37,6 @@
     "chai": "^3.5.0",
     "codecov": "^1.0.1",
     "enzyme": "^1.5.0",
-    "eslint": "^1.10.3",
-    "eslint-plugin-react": "^3.16.1",
     "istanbul": "^0.4.2",
     "mocha": "^2.4.5",
     "react-addons-test-utils": "^0.14.7",

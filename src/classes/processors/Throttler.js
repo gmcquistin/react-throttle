@@ -1,6 +1,6 @@
 import Base from './Base'
-import _ from 'lodash'
+import throttle from './helpers/throttle';
 
 export default class Throttler extends Base {
-  _wrapHandler = (fn) => _.throttle(fn, this.time);
+  _wrapHandler = (fn) => throttle(fn, this.time);
 }

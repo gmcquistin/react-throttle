@@ -1,6 +1,7 @@
 import Base from './Base'
-import _ from 'lodash'
+import debounce from './helpers/debounce';
+
 
 export default class Debouncer extends Base {
-  _wrapHandler = (fn) => _.debounce(fn, this.time);
+  _wrapHandler = (fn) => debounce(fn, this.time);
 }
