@@ -41,7 +41,7 @@ export default class Base {
   _wrapHandlers = () => _.mapValues(this._extractHandlers(), this._wrapHandler);
 
   _shouldWrapHandler = (handler, handlerName) => {
-    return _.isFunction(handler) && this.time > 0 && this.handlersToWrap.includes(handlerName);
+    return _.isFunction(handler) && this.time > 0 && _.includes(this.handlersToWrap, handlerName);
   };
 
   // Cancel timers related to throttling
