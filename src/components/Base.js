@@ -8,6 +8,10 @@ export default class Base extends Component {
     this.handlersToWrap = props.handler.length ? [props.handler] : props.handlers;
   }
 
+  componentWillReceiveProps(newProps){
+    this._throttler.processPropsChange(newProps.children.props)
+  }
+
   componentWillUnmount() {
     this._throttler.destroy();
   }

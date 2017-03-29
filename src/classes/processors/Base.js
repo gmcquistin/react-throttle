@@ -28,10 +28,15 @@ export default class Base {
   // How the processed element is made public, memoized
   element = () => this._el || (this._el = this._processElement());
 
+  // method called by the componentWillReceiveProps to update the inner props (except the handlers)
+  processPropsChange = (newProps) => {
+    this._el =  React.cloneElement(this.el, _.assign({}, newProps, this.handlers));
+  };
+
   // Clone the element, overwriting unwrapped handlers with their wrapped versions
   _processElement = () => {
     this.handlers = this._wrapHandlers();
-    return React.cloneElement(this.el, this.handlers);
+    return React.cloneElement(this.el, _.assign({}, this.el.props, this.handlers));
   };
 
   // Find the handlers which should be wrapped by the throttling function
