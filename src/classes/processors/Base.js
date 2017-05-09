@@ -1,7 +1,5 @@
 import React from 'react';
-import lodash from 'lodash';
-
-const _ = lodash.runInContext();
+import _ from 'lodash';
 
 // Processes a ReactElement by iterating over its props, looking for
 // props which are specified by `handlersToWrap`. Matching props will
