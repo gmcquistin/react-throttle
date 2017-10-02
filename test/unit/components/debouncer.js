@@ -1,6 +1,5 @@
-import 'enzyme/withDom';
 import chai from 'chai';
-import TestUtils from 'react-addons-test-utils';
+import ShallowRenderer from 'react-test-renderer/shallow';
 import React from 'react';
 import Debounce from '../../../src/components/Debounce'
 import isWrappedFunction from '../../helpers/isWrappedFunction';
@@ -13,7 +12,7 @@ chai.should();
 
 describe('Debouncer component', function() {
   it('should render the child component', function() {
-    const renderer = TestUtils.createRenderer();
+    const renderer = new ShallowRenderer();
 
     renderer.render(
       <Debounce>
@@ -28,7 +27,7 @@ describe('Debouncer component', function() {
 
   describe('with one prop to wrap', function() {
     before(function() {
-      const renderer = TestUtils.createRenderer();
+      const renderer = new ShallowRenderer();
 
       renderer.render(
         <Debounce handler="onClick">
@@ -49,7 +48,7 @@ describe('Debouncer component', function() {
 
   describe('with an array of props to wrap', function() {
     before(function() {
-      const renderer = TestUtils.createRenderer();
+      const renderer = new ShallowRenderer();
       renderer.render(
         <Debounce handlers={['onClick', 'onBlur', 'onChange']}>
           <input onClick={() => {}}
