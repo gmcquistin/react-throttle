@@ -22,7 +22,7 @@
     "delay",
     "timing"
   ],
-  "author": "Gavin McQuistin <gavin.mcquistin@linn.co.uk>",
+  "author": "Gavin McQuistin <gavin@mcquistin.co.uk>",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/gmcquistin/react-throttle/issues"
